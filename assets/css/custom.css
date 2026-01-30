@@ -1,0 +1,82 @@
+/* Custom color scheme for RS-Protection */
+/* 20% red, 60% black, 18% white, 2% dark blue */
+
+:root {
+    --primary-red: #dc2626; /* Tailwind red-600 */
+    --primary-black: #000000;
+    --primary-white: #ffffff;
+    --primary-dark-blue: #1e3a8a; /* Tailwind blue-800 */
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primary-black);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-red);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #b91c1c; /* darker red */
+}
+
+/* Smooth transitions */
+* {
+    scroll-behavior: smooth;
+}
+
+/* Custom focus styles */
+input:focus, textarea:focus {
+    box-shadow: 0 0 0 2px var(--primary-red);
+}
+
+/* Hero CTA red container and hover effects */
+.hero-cta-container {
+    display: inline-block;
+    border: 2px solid var(--primary-red);
+    border-radius: 0.75rem; /* matches rounded-lg */
+    padding: 3px;
+    transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+}
+.hero-cta-container:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(220,38,38,0.18);
+    background: rgba(220,38,38,0.04);
+}
+
+/* Slightly stronger focus for keyboard users */
+.hero-cta-container:focus-within {
+    box-shadow: 0 8px 20px rgba(220,38,38,0.14);
+}
+
+/* Slider styles */
+.hero-slider { position: relative; width: 100%; height: 100%; }
+.hero-slider .slide { position: absolute; inset: 0; opacity: 0; transform: scale(1.03); transition: opacity .8s ease, transform .8s ease; }
+.hero-slider .slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-slider .slide.active { opacity: 1; transform: scale(1); }
+
+/* Dots */
+#slider-dots button { width: 10px; height: 10px; border-radius: 9999px; background: rgba(255,255,255,0.45); border: none; }
+#slider-dots button.active { background: var(--primary-red); }
+
+/* Make controls easier to click on mobile */
+#slider-prev, #slider-next { backdrop-filter: blur(6px); }
+
+@media (max-width: 640px) {
+    .hero-slider .slide { transform-origin: center; }
+}
+
+/* Navigation active state */
+.nav-link { color: rgba(255,255,255,0.85); }
+.nav-link:hover { color: var(--primary-red); }
+.nav-link.active {
+    color: var(--primary-red) !important;
+    font-weight: 600;
+    box-shadow: inset 0 -3px 0 var(--primary-red);
+}

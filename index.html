@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RS-Protection Security Services</title>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // brand palette following your requested distribution
+                        brand: {
+                            DEFAULT: '#dc2626', // primary red (20%)
+                            700: '#b91c1c'
+                        },
+                        rsblack: '#000000',
+                        rswhite: '#ffffff',
+                        rsblue: '#1e3a8a'
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+<body class="bg-black text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-black bg-opacity-90 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-brand">RS-Protection</h1>
+                </div>
+
+                <!-- Desktop links -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#home" class="nav-link px-3 py-1 rounded transition-colors hover:text-brand">Home</a>
+                    <a href="#about" class="nav-link px-3 py-1 rounded transition-colors hover:text-brand">About</a>
+                    <a href="#services" class="nav-link px-3 py-1 rounded transition-colors hover:text-brand">Services</a>
+                    <a href="#why-choose-us" class="nav-link px-3 py-1 rounded transition-colors hover:text-brand">Why Choose Us</a>
+                    <a href="#contact" class="nav-link px-3 py-1 rounded transition-colors hover:text-brand">Contact</a>
+                </div>
+
+                <!-- Mobile toggle -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" aria-expanded="false" aria-controls="mobile-menu" class="p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-brand/50">
+                        <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu (hidden by default) -->
+        <div id="mobile-menu" class="md:hidden hidden bg-black bg-opacity-95">
+            <div class="px-4 py-4 flex flex-col space-y-2">
+                <a href="#home" class="nav-link px-3 py-2 rounded transition-colors hover:text-brand">Home</a>
+                <a href="#about" class="nav-link px-3 py-2 rounded transition-colors hover:text-brand">About</a>
+                <a href="#services" class="nav-link px-3 py-2 rounded transition-colors hover:text-brand">Services</a>
+                <a href="#why-choose-us" class="nav-link px-3 py-2 rounded transition-colors hover:text-brand">Why Choose Us</a>
+                <a href="#contact" class="nav-link px-3 py-2 rounded transition-colors hover:text-brand">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (slideshow) -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Slides container -->
+        <div class="absolute inset-0 hero-slider">
+            <div class="slide active"><img src="assets/rs-protection1.jpeg" alt="RS Protection - team" class="w-full h-full object-cover"></div>
+            <div class="slide"><img src="assets/rs-protection2.jpeg" alt="RS Protection - guard" class="w-full h-full object-cover"></div>
+            <div class="slide"><img src="assets/rs-protection3.jpeg" alt="RS Protection - professionals" class="w-full h-full object-cover"></div>
+            <div class="slide"><img src="assets/rs-protection4.jpeg" alt="Patrol vehicle" class="w-full h-full object-cover"></div>
+            <div class="slide"><img src="assets/rs-protection5.jpeg" alt="Security officer" class="w-full h-full object-cover"></div>
+            <div class="slide"><img src="assets/rs-protection6.jpeg" alt="CCTV installation" class="w-full h-full object-cover"></div>
+        </div>
+
+        <!-- Dark overlay -->
+        <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 text-center px-4 max-w-3xl">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 text-white">RS-Protection</h1>
+            <p class="text-lg md:text-xl mb-6 text-gray-300">Professional Security Solutions | South Africa</p>
+            <p class="text-base md:text-lg mb-8 text-gray-300">Reliable • Professional • Trusted Security Solutions</p>
+            <div class="hero-cta-container inline-block">
+                <button id="hero-get-started" type="button" class="bg-brand text-white px-8 py-3 rounded-lg text-lg font-semibold transition transform duration-200 ease-out shadow-md hover:scale-105 hover:bg-brand-700 hover:shadow-xl focus:outline-none focus:ring-4 focus:ring-brand/30">
+                    Get Started
+                </button>
+            </div>
+        </div>
+
+        <!-- Slider controls -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex items-center space-x-3">
+            <button id="slider-prev" aria-label="Previous slide" class="w-10 h-10 rounded-full bg-black bg-opacity-40 text-white flex items-center justify-center hover:bg-opacity-60">◀</button>
+            <div id="slider-dots" class="flex items-center gap-2"></div>
+            <button id="slider-next" aria-label="Next slide" class="w-10 h-10 rounded-full bg-black bg-opacity-40 text-white flex items-center justify-center hover:bg-opacity-60">▶</button>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold mb-6 text-brand">About RS-Protection</h2>
+                    <p class="text-lg mb-6 text-gray-300">
+                        RS Protection (Pty) Ltd was established in 2019 and is based in Johannesburg, South Africa. We are a 100% Black-Owned company and a Level 1 B-BBEE Contributor.
+                    </p>
+                    <p class="text-lg mb-6 text-gray-300">
+                        We provide professional security services to businesses, organisations, residential properties, commercial facilities, and individuals. Our mission is to protect people, assets, and property with integrity, professionalism, and reliability.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mt-8">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-brand">100%</div>
+                            <div class="text-sm text-gray-400">Black-Owned</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-brand">Level 1</div>
+                            <div class="text-sm text-gray-400">B-BBEE Contributor</div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <img src="assets/rs-protection2.jpeg" alt="Security Team" class="rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12 text-brand">Our Services</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 transition-colors">
+                    <div class="bg-brand w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                        <svg viewBox="0 0 24 24" class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20 6L9 17l-5-5"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">VIP Protection</h3>
+                    <p class="text-gray-300">Armed & Unarmed Guards for executive protection and personal security.</p>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 transition-colors">
+                    <div class="bg-brand w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                        <svg viewBox="0 0 24 24" class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20 6L9 17l-5-5"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Corporate Security</h3>
+                    <p class="text-gray-300">Asset protection and security management for businesses and organizations.</p>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 transition-colors">
+                    <div class="bg-brand w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                        <svg viewBox="0 0 24 24" class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20 6L9 17l-5-5"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Surveillance & CCTV</h3>
+                    <p class="text-gray-300">Advanced monitoring systems and access control solutions.</p>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 transition-colors">
+                    <div class="bg-brand w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                        <svg viewBox="0 0 24 24" class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20 6L9 17l-5-5"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Armed Response</h3>
+                    <p class="text-gray-300">24/7 rapid response services for emergency situations.</p>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 transition-colors">
+                    <div class="bg-brand w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                        <svg viewBox="0 0 24 24" class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20 6L9 17l-5-5"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Investigations</h3>
+                    <p class="text-gray-300">Undercover investigations and risk assessments.</p>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 transition-colors">
+                    <div class="bg-brand w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                        <svg viewBox="0 0 24 24" class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20 6L9 17l-5-5"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Mobile Patrols</h3>
+                    <p class="text-gray-300">Regular patrols to ensure property security and deter crime.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-choose-us" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12 text-brand">Why Choose RS-Protection</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="bg-brand w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                        <svg viewBox="0 0 24 24" class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20 6L9 17l-5-5"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Integrity</h3>
+                    <p class="text-gray-300">Honesty and ethical conduct in all our operations.</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-brand w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                        <svg viewBox="0 0 24 24" class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20 6L9 17l-5-5"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Excellence</h3>
+                    <p class="text-gray-300">High standards in service delivery and professionalism.</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-brand w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                        <svg viewBox="0 0 24 24" class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20 6L9 17l-5-5"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Reliability</h3>
+                    <p class="text-gray-300">Dependable and consistent protection services.</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-brand w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                        <svg viewBox="0 0 24 24" class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20 6L9 17l-5-5"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Innovation</h3>
+                    <p class="text-gray-300">Modern security solutions and latest technology.</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-brand w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                        <svg viewBox="0 0 24 24" class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20 6L9 17l-5-5"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Teamwork</h3>
+                    <p class="text-gray-300">Collaboration and respect among our security professionals.</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-brand w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                        <svg viewBox="0 0 24 24" class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M20 6L9 17l-5-5"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Client Focus</h3>
+                    <p class="text-gray-300">Your safety and security is our top priority.</p>
+                </div>
+            </div>
+            <div class="mt-12 text-center">
+                <img src="assets/rs-protection3.jpeg" alt="Security Professionals" class="rounded-lg shadow-lg mx-auto max-w-md">
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery removed per user request -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12 text-brand">Contact Us</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Contact Information -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6 text-white">Contact Information</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div>
+                                <div class="font-semibold">Phone</div>
+                                <div class="text-gray-300">083 632 8296</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div>
+                                <div class="font-semibold">Email</div>
+                                <div class="text-gray-300">info@rs-protection.co.za</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div>
+                                <div class="font-semibold">Location</div>
+                                <div class="text-gray-300">Johannesburg, South Africa</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <h4 class="text-lg font-semibold mb-4">Company Details</h4>
+                        <div class="text-sm text-gray-400 space-y-1">
+                            <div>Registered Name: RS Protection (Pty) Ltd</div>
+                            <div>Company Reg No: 2019/367269/07</div>
+                            <div>PSIRA Reg No: 4578730</div>
+                            <div>B-BBEE Status: Level 1 Contributor</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Send Us a Message -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6 text-white">Send Us a Message</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <input type="text" placeholder="Full Name" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-red-600 text-white">
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Email Address" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-red-600 text-white">
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Subject" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-red-600 text-white">
+                        </div>
+                        <div>
+                            <textarea rows="4" placeholder="Message" class="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-lg focus:outline-none focus:border-red-600 text-white"></textarea>
+                        </div>
+                        <div class="flex space-x-4">
+                            <a href="mailto:info@rs-protection.co.za" class="flex-1 bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg text-center font-semibold transition-colors">
+                                Send via Email
+                            </a>
+                            <a href="https://api.whatsapp.com/send/?phone=27836328296&text=Hello%20RS-Protection%2C%20I%20would%20like%20to%20inquire%20about%20your%20security%20services." target="_blank" class="flex-1 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg text-center font-semibold transition-colors">
+                                Send via WhatsApp
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400">&copy; 2019–2026 RS-Protection Security Services. All rights reserved.</p>
+            <p class="text-gray-500 mt-2">Professional Security Solutions | South Africa</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Hero Get Started button smooth-scroll
+        document.addEventListener('DOMContentLoaded', function () {
+            var btn = document.getElementById('hero-get-started');
+            if (btn) {
+                btn.addEventListener('click', function () {
+                    var target = document.getElementById('contact');
+                    if (target) target.scrollIntoView({ behavior: 'smooth' });
+                });
+            }
+
+            // Simple hero slider (auto-play + controls)
+            var slides = Array.from(document.querySelectorAll('.hero-slider .slide'));
+            var current = 0;
+            var interval = 4000;
+            var timer = null;
+
+            var dotsContainer = document.getElementById('slider-dots');
+            function createDots() {
+                if (!dotsContainer) return;
+                slides.forEach(function (_, i) {
+                    var b = document.createElement('button');
+                    b.type = 'button';
+                    b.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+                    if (i === 0) b.classList.add('active');
+                    b.addEventListener('click', function () { goTo(i); resetTimer(); });
+                    dotsContainer.appendChild(b);
+                });
+            }
+
+            function updateDots() {
+                if (!dotsContainer) return;
+                Array.from(dotsContainer.children).forEach(function (d, i) {
+                    d.classList.toggle('active', i === current);
+                });
+            }
+
+            function show(n) {
+                slides.forEach(function (s, i) { s.classList.toggle('active', i === n); s.setAttribute('aria-hidden', i === n ? 'false' : 'true'); });
+                current = n;
+                updateDots();
+            }
+
+            function next() { show((current + 1) % slides.length); }
+            function prev() { show((current - 1 + slides.length) % slides.length); }
+            function goTo(n) { show(n % slides.length); }
+            function resetTimer() { clearInterval(timer); timer = setInterval(next, interval); }
+
+            if (slides.length) {
+                createDots();
+                timer = setInterval(next, interval);
+
+                var nextBtn = document.getElementById('slider-next');
+                var prevBtn = document.getElementById('slider-prev');
+                if (nextBtn) nextBtn.addEventListener('click', function () { next(); resetTimer(); });
+                if (prevBtn) prevBtn.addEventListener('click', function () { prev(); resetTimer(); });
+
+                // Pause on hover
+                var sliderEl = document.querySelector('.hero-slider');
+                if (sliderEl) {
+                    sliderEl.addEventListener('mouseenter', function () { clearInterval(timer); });
+                    sliderEl.addEventListener('mouseleave', function () { resetTimer(); });
+                }
+            }
+            
+            // Highlight nav link for current section using IntersectionObserver
+            var navLinks = Array.from(document.querySelectorAll('.nav-link'));
+            var sections = navLinks.map(function (a) {
+                var id = a.getAttribute('href') || '';
+                return document.querySelector(id);
+            });
+
+            var obsOptions = { root: null, rootMargin: '0px 0px -40% 0px', threshold: 0 };
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        var id = '#' + entry.target.id;
+                        navLinks.forEach(function (a) {
+                            if (a.getAttribute('href') === id) {
+                                a.classList.add('active');
+                                a.setAttribute('aria-current', 'true');
+                            } else {
+                                a.classList.remove('active');
+                                a.removeAttribute('aria-current');
+                            }
+                        });
+                    }
+                });
+            }, obsOptions);
+
+            sections.forEach(function (sec) { if (sec) observer.observe(sec); });
+
+            // Mobile menu toggle
+            var mobileBtn = document.getElementById('mobile-menu-button');
+            var mobileMenu = document.getElementById('mobile-menu');
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', function () {
+                    var expanded = mobileBtn.getAttribute('aria-expanded') === 'true';
+                    mobileBtn.setAttribute('aria-expanded', String(!expanded));
+                    mobileMenu.classList.toggle('hidden');
+                });
+
+                // Close mobile menu when a link is clicked
+                mobileMenu.querySelectorAll('a[href^="#"]').forEach(function (a) {
+                    a.addEventListener('click', function () { mobileMenu.classList.add('hidden'); mobileBtn.setAttribute('aria-expanded', 'false'); });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
